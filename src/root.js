@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
 import {Route, BrowserRouter, Link} from 'react-router-dom';
 
+import Header from './components/header/Header';
+
 const Root = ({store}) => (
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        This is Home.
+        <Header />
       </div>
     </BrowserRouter>
   </Provider>
