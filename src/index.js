@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import Root from './root';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
-import './static/css/index.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
