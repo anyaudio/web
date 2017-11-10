@@ -4,10 +4,10 @@ export function search(state={videos: [], searchStatus: searchStatus.notSearchin
   switch (action.type) {
 
     case actionsType.searchSuccess:
-      return {...state, videos: action.videos, searchStatus: searchStatus.searched};
+      return {...state, videos: action.videos.results, searchStatus: searchStatus.searched, numberResults: action.videos.metadata.count};
 
     case actionsType.searchInit:
-      return {...state, videos: [], searchStatus: searchStatus.searching};
+      return {...state, videos: [], searchStatus: searchStatus.searching, numberResults: 0};
 
     default:
       return state;
