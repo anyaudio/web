@@ -16,7 +16,7 @@ export default class Header extends React.Component {
             </span>
           </Navbar.Brand>
         </Navbar.Header>
-        <Navbar.Form pullLeft>
+        <Navbar.Form pullLeft className='hidden-xs'>
           <FormGroup>
             <FormControl type="text" placeholder="Search"/>
           </FormGroup>
