@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+.page {
+  display: flex;
+  flex-flow: column;
+}
+
+.page-top {
+  background-color: #faa;
+  height: 50px;
+}
+
+.page-middle {
+  background-color: #afa;
+  height: calc(100vh - 100px);
+}
+
+.page-bottom {
+  background-color: #aaf;
+  height: 50px;
+}

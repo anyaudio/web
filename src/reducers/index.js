@@ -1,3 +1,5 @@
 import {combineReducers} from 'redux';
 
-export default combineReducers({});
+import navigationHome from './navigationHomeReducer';
+
+export default combineReducers({...navigationHome});

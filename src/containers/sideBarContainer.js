@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
 
-import Sidebar from '../containers/sidebarContainer';
+import Sidebar from '../components/sideBar';
 
 export default connect()(Sidebar);
