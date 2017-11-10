@@ -6,9 +6,9 @@ import {Row, Col} from 'react-bootstrap';
 
 import './static/css/root.css';
 
-import Header from './components/header/Header';
 
 // Containers
+import Header from './containers/headerContainer';
 import NavigationHome from './containers/navigation/navigationHomeContainer';
 import Player from './containers/playerContainer';
 import Sidebar from './containers/sideBarContainer';
