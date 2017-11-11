@@ -1,6 +1,6 @@
 import getQueryString from './paramParser';
 
-const host = 'http://anyaudio.in';
+const host = 'https://anyaudio.in';
 
 export default {
   search: (query) => {
