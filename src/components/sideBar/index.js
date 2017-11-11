@@ -4,7 +4,7 @@ export default class SideBar extends React.Component {
   render() {
     return (
       <div>
-        This is the sidebar.
+        {this.props.videos.map(video => <li key={video.id}>{video.title}</li>)}
       </div>
     )
   }

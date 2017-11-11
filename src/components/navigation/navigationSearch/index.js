@@ -46,7 +46,7 @@ export default class NavigationSearch extends React.Component {
         <div className='text-center'>
           {this.getHeadline()}
         </div>
-        {<VideoCardListList videos={this.props.videos}/>}
+        {<VideoCardListList videos={this.props.videos} addToNowPlaying={this.props.addToNowPlaying}/>}
       </div>
     )
   }
