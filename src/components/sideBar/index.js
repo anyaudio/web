@@ -9,6 +9,10 @@ export default class SideBar extends React.Component {
         this.props.removeVideo(video);
         this.props.playSong(video);
         this.props.playedNext();
+      } else if (nextProps.suggestedVideos.length > 0) {
+        let video = nextProps.suggestedVideos[0];
+        this.props.playSong(video);
+        this.props.playedNext();
       }
     }
   }
