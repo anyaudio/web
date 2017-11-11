@@ -1,17 +1,33 @@
 import React from 'react';
-import 'url-search-params-polyfill';
 
 import {searchStatus} from "../../../actions/searchActions";
 
 export default class NavigationSearch extends React.Component {
   constructor(props) {
     super(props);
-    const params = new URLSearchParams(this.props.location.search);
-    this.query = params.q;
+    this.query = null;
+  }
+
+  componentDidMount() {
+    this.makeSearch(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.makeSearch(nextProps);
+  }
+
+  makeSearch(props) {
+    const query = props.match.params.q;
+    console.log(this.query, query);
+    if (this.query === query) {
+      return;
+    }
+    this.query = query;
     this.startSearch();
   }
 
   startSearch() {
+    console.log('Searching for ', this.query);
     this.props.initSearch();
     this.props.search(this.query);
   }
@@ -25,7 +41,6 @@ export default class NavigationSearch extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <h2>Search results for {this.query}</h2>

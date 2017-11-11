@@ -25,7 +25,7 @@ const Root = ({store}) => (
         <Row className='page-middle'>
           <Col sm={12} md={12} lg={10}>
             <Route exact path='/' component={NavigationHome} />
-            <Route exact path='/search' component={NavigationSearch} />
+            <Route exact path='/search/:q' component={NavigationSearch} />
           </Col>
           <Col smHidden={true} mdHidden={true} xsHidden={true} lg={2}>
             <Sidebar />

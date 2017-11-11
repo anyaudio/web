@@ -4,16 +4,13 @@ import {Navbar, FormGroup, FormControl, Button} from 'react-bootstrap';
 
 import '../header/static/css/header.css';
 
-import paramParser from '../../utils/paramParser';
-
 export default class Header extends React.Component {
   search() {
     const query = document.getElementById('search-input').value.replace(/^\s+|\s+$/g, '');  // Trailing whitespaces
     if (query.length === 0) {
       return
     }
-    const parsed = paramParser({q: query});
-    this.props.history.push('/search?' + parsed);
+    this.props.history.push('/search/' + query);
   }
 
   render() {
