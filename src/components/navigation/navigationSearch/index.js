@@ -31,6 +31,10 @@ export default class NavigationSearch extends React.Component {
     this.props.search(this.query);
   }
 
+  playSong(video) {
+    this.props.playSong(video);
+  }
+
   getHeadline() {
     if (this.props.searchStatus === searchStatus.searching) {
       return <span>Loading...</span>
@@ -46,7 +50,8 @@ export default class NavigationSearch extends React.Component {
         <div className='text-center'>
           {this.getHeadline()}
         </div>
-        {<VideoCardListList videos={this.props.videos} addToNowPlaying={this.props.addToNowPlaying}/>}
+        {<VideoCardListList videos={this.props.videos} addToNowPlaying={this.props.addToNowPlaying}
+                            playSong={this.props.playSong} />}
       </div>
     )
   }

@@ -4,6 +4,7 @@ import NavigationSearch from '../../components/navigation/navigationSearch';
 
 import {searchInit, search} from "../../actions/searchActions";
 import {addVideo} from "../../actions/nowPlayingActions";
+import {playSong} from "../../actions/playerActions";
 
 function mapStateToProps(state) {
   return {
@@ -18,6 +19,7 @@ export default connect(
   {
     initSearch: searchInit,
     search: search,
-    addToNowPlaying: addVideo
+    addToNowPlaying: addVideo,
+    playSong: playSong
   }
 )(NavigationSearch);

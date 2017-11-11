@@ -9,10 +9,15 @@ export default class VideoCardList extends React.Component {
     this.props.addToNowPlaying(this.props.video);
   }
 
+  playSong() {
+    this.props.playSong(this.props.video);
+  }
+
   render() {
     return (
       <div className='video-card-list row'>
-        <img src={this.props.video.thumb} className='img-responsive img-circle video-card-list-thumb' alt='IMG'/>
+        <img src={this.props.video.thumb} className='img-responsive img-circle video-card-list-thumb'
+             alt='IMG' onClick={this.playSong.bind(this)}/>
         <div className='video-card-list-details col-xs-11 col-sm-11 col-md-10 col-lg-8'>
           <div className='video-card-list-time'>
             {this.props.video.length}
