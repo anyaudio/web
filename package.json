@@ -37,6 +37,7 @@
     "react-bootstrap": "^0.31.5",
     "react-dev-utils": "^4.2.1",
     "react-dom": "^16.0.0",
+    "react-fontawesome": "^1.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",

@@ -1,0 +1,42 @@
+.video-card-list-list {
+  display: block;
+}
+
+.video-card-list {
+  width: inherit;
+  display: flex;
+  flex-flow: row;
+  height: 80px;
+  margin: 8px 0;
+}
+
+.video-card-list-thumb {
+  width: 80px;
+  height: 80px;
+}
+
+.video-card-list-details {
+  display: flex;
+  flex-flow: column;
+  margin: 2px 0 0 10px;
+}
+
+.video-card-list-time {
+  color: #f00;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.video-card-list-title {
+  font-weight: 800;
+}
+
+.video-card-list-uploader {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.video-card-list-views {
+  font-size: 12px;
+  opacity: 0.8;
+}
