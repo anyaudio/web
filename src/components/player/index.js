@@ -11,6 +11,9 @@ export default class Player extends React.Component {
 
   componentDidMount() {
     let audioElement = document.getElementById('audio-player');
+    if (!audioElement) {
+      return;
+    }
     audioElement.addEventListener('ended', (e) => {
       this.props.playNext();
     });
