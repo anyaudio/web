@@ -33,17 +33,19 @@ export default class NavigationSearch extends React.Component {
 
   getHeadline() {
     if (this.props.searchStatus === searchStatus.searching) {
-      return <div>Loading...</div>
+      return <span>Loading...</span>
     } else if (this.props.searchStatus === searchStatus.searched) {
-      return <div>Found {this.props.numberResults} videos.</div>
+      return <span>Found {this.props.numberResults} videos.</span>
     }
   }
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h2>Search results for {this.query}</h2>
-        {this.getHeadline()}
+        <div className='text-center'>
+          {this.getHeadline()}
+        </div>
         {<VideoCardListList videos={this.props.videos}/>}
       </div>
     )
