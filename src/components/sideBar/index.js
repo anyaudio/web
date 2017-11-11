@@ -4,11 +4,11 @@ export default class SideBar extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.dispatchNext) {
-      this.props.playedNext();
-      if (this.props.videos.length > 0) {
-        let video = this.props.videos[0];
+      if (nextProps.videos.length > 0) {
+        let video = nextProps.videos[0];
         this.props.removeVideo(video);
         this.props.playSong(video);
+        this.props.playedNext();
       }
     }
   }

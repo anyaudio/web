@@ -6,6 +6,7 @@ export default class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {streamURL: null};
+    this.props.playNext()
   }
 
   componentDidMount() {
@@ -17,7 +18,8 @@ export default class Player extends React.Component {
 
   componentWillReceiveProps(newProps) {
     api.fetchStreamURL(newProps.currentSong.stream_url)
-      .then(url => this.setState({...this.state, streamURL: url}))
+      .then(url => this.setState({...this.state, streamURL: url}));
+    this.props.getSuggestions(newProps.currentSong.suggest_url);
   }
 
   render() {

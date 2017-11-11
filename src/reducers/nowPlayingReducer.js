@@ -1,7 +1,7 @@
 import {actionType} from "../actions/nowPlayingActions";
 import {removeDuplicateVideos} from "../utils/removeDuplicates";
 
-const initialState = {videos: [], dispatchNext: false};
+const initialState = {videos: [], suggestedVideos: [], dispatchNext: false};
 
 export function nowPlaying(state = initialState, action) {
   switch (action.type) {
@@ -19,6 +19,9 @@ export function nowPlaying(state = initialState, action) {
 
     case actionType.playedNext:
       return {...state, dispatchNext: false};
+
+    case actionType.getSuggestions:
+      return {...state, suggestedVideos: action.suggestedVideos};
 
     default:
       return state;
