@@ -1,6 +1,7 @@
 import React from 'react';
 
-import {searchStatus} from "../../../actions/searchActions";
+import {searchStatus} from '../../../actions/searchActions';
+import VideoCardListList from '../../../components/navigation/videoCard/list/videoCardListList';
 
 export default class NavigationSearch extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ export default class NavigationSearch extends React.Component {
 
   makeSearch(props) {
     const query = props.match.params.q;
-    console.log(this.query, query);
     if (this.query === query) {
       return;
     }
@@ -27,7 +27,6 @@ export default class NavigationSearch extends React.Component {
   }
 
   startSearch() {
-    console.log('Searching for ', this.query);
     this.props.initSearch();
     this.props.search(this.query);
   }
@@ -45,7 +44,7 @@ export default class NavigationSearch extends React.Component {
       <div>
         <h2>Search results for {this.query}</h2>
         {this.getHeadline()}
-        {this.props.videos.map(video => <li key={video.id}>{video.title}</li>)}
+        {<VideoCardListList videos={this.props.videos}/>}
       </div>
     )
   }
