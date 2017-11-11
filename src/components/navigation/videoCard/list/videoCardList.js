@@ -4,7 +4,7 @@ export default class VideoCardList extends React.Component {
   render() {
     return (
       <div>
-        {this.props.video.title};
+        {this.props.video.title}
       </div>
     )
   }
