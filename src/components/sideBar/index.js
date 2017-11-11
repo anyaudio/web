@@ -16,7 +16,14 @@ export default class SideBar extends React.Component {
   render() {
     return (
       <div>
-        {this.props.videos.map(video => <li key={video.id}>{video.title}</li>)}
+        <div>
+          <b>Upcoming songs:</b>
+          {this.props.videos.map(video => <li key={video.id}>{video.title}</li>)}
+        </div>
+        <div style={{marginTop: '10px'}}>
+          <b>Suggestions:</b>
+          {this.props.suggestedVideos.map(video => <li key={video.id}>{video.title}</li>)}
+        </div>
       </div>
     )
   }
