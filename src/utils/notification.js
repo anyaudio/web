@@ -3,6 +3,6 @@ export default (title) => {
     .requestPermission()
     .then(function() {
       let n = new Notification(title);
-      setTimeout(n.close.bind(n), 1500);
+      setTimeout(n.close.bind(n), 2000);
     });
 }
