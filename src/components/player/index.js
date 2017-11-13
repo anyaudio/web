@@ -28,11 +28,11 @@ export default class Player extends React.Component {
   render() {
     return (
       <div>
-        Playing {this.props.currentSong && this.props.currentSong.title}...
         <div>
           <audio id='audio-player' src={this.state.streamURL} autoPlay={true} controls={true} preload='metadata'>
             Audio not supported!!
           </audio>
+          {this.props.currentSong && this.props.currentSong.title}
         </div>
       </div>
     )

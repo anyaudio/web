@@ -20,5 +20,18 @@ export default {
       fetch(host + suggestUrl)
         .then(response => response.json().then(data => resolve(data.results)))
     })
+  },
+  getPlaylists: () => {
+    return new Promise((resolve, reject) => {
+      fetch(host + '/api/v1/playlists')
+        .then(response => response.json().then(data => resolve(data.results)));
+    })
+  },
+  getPlaylistSongs: (playlists, count) => {
+    let commaSeparatedPlaylists = playlists.map(a => a.playlist).join();
+    return new Promise((resolve, reject) => {
+      fetch(host + '/api/v1/trending?' + getQueryString({type: commaSeparatedPlaylists, number: count}))
+        .then(response => response.json().then(data => resolve(data.results)));
+    })
   }
 }

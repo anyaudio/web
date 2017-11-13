@@ -1,0 +1,34 @@
+.playlist-complete {
+  margin-bottom: 45px;
+}
+
+.playlist-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 20px 0 0 10px;
+}
+
+.video-grid-card {
+  margin: 10px;
+}
+
+.video-grid-details {
+  height: 70px;
+}
+
+.video-grid-title {
+  font-size: 13px;
+  font-weight: 800;
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.video-grid-uploader {
+  opacity: 0.9;
+  font-size: 12px;
+}
+
+.video-grid-views {
+  opacity: 0.8;
+  font-size: 11px;
+}
