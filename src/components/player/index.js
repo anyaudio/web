@@ -1,6 +1,7 @@
 import React from 'react';
 
 import api from '../../utils/api';
+import notify from '../../utils/notification';
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -21,7 +22,10 @@ export default class Player extends React.Component {
 
   componentWillReceiveProps(newProps) {
     api.fetchStreamURL(newProps.currentSong.stream_url)
-      .then(url => this.setState({...this.state, streamURL: url}));
+      .then(url => {
+        this.setState({...this.state, streamURL: url});
+        notify('Playing ' + newProps.currentSong.title);
+      });
     this.props.getSuggestions(newProps.currentSong.suggest_url);
     this.props.playedNext()
   }
