@@ -9,7 +9,8 @@ export default class VideoCardGridList extends React.Component {
       <div className='playlist-complete' key={name}>
         <div className='playlist-title'>{name}</div>
         <div className='row'>
-          {videos.map(video => <VideoCardGrid video={video} key={video.id} playSong={this.props.playSong}/>)}
+          {videos.map(video => <VideoCardGrid video={video} key={video.id} playSong={this.props.playSong}
+                                              addToNowPlaying={this.props.addToNowPlaying}/>)}
         </div>
       </div>
     )

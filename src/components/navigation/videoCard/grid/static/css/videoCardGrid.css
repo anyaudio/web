@@ -17,6 +17,8 @@
 }
 
 .video-grid-title {
+  display: flex;
+  flex-flow: row;
   font-size: 13px;
   font-weight: 800;
   max-height: 40px;
@@ -31,4 +33,14 @@
 .video-grid-views {
   opacity: 0.8;
   font-size: 11px;
+}
+
+.video-grid-title-title {
+  width: 90%;
+}
+
+.video-grid-title-add {
+  width: 10%;
+  top: 0;
+  margin-top: 4px;
 }
