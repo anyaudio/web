@@ -23,6 +23,7 @@ export default class Player extends React.Component {
     api.fetchStreamURL(newProps.currentSong.stream_url)
       .then(url => this.setState({...this.state, streamURL: url}));
     this.props.getSuggestions(newProps.currentSong.suggest_url);
+    this.props.playedNext()
   }
 
   render() {

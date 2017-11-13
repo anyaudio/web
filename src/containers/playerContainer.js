@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 
 import Player from '../components/player';
 import {playSong} from "../actions/playerActions";
-import {playNext, getSuggestions} from "../actions/nowPlayingActions";
+import {playNext, getSuggestions, playedNext} from "../actions/nowPlayingActions";
 
 function mapStateToProps(state) {
   return {
@@ -15,6 +15,7 @@ export default connect(
   {
     playSong: playSong,
     playNext: playNext,
-    getSuggestions: getSuggestions
+    getSuggestions: getSuggestions,
+    playedNext: playedNext
   }
 )(Player);
