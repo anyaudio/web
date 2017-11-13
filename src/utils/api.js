@@ -1,6 +1,6 @@
 import getQueryString from './paramParser';
 
-const host = 'https://anyaudio.in';
+export const host = 'https://anyaudio.in';
 
 export default {
   search: (query) => {
@@ -32,6 +32,12 @@ export default {
     return new Promise((resolve, reject) => {
       fetch(host + '/api/v1/trending?' + getQueryString({type: commaSeparatedPlaylists, number: count}))
         .then(response => response.json().then(data => resolve(data.results)));
+    })
+  },
+  getDownloadLink: (getUrl) => {
+    return new Promise((resolve, reject) => {
+      fetch(host + getUrl)
+        .then(response => response.json().then(data => resolve(data)))
     })
   }
 }

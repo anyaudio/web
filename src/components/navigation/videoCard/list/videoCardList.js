@@ -1,6 +1,7 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 
+import {downloadVideo} from "../../../../utils/downloadFile";
 import './static/css/videoCardList.css';
 
 export default class VideoCardList extends React.Component {
@@ -11,6 +12,10 @@ export default class VideoCardList extends React.Component {
 
   playSong() {
     this.props.playSong(this.props.video);
+  }
+
+  downloadSong() {
+    downloadVideo(this.props.video);
   }
 
   render() {
@@ -32,6 +37,7 @@ export default class VideoCardList extends React.Component {
             {this.props.video.views}
           </div>
         </div>
+        <FontAwesome name='download' onClick={this.downloadSong.bind(this)}/>
         <FontAwesome name='plus' onClick={this.addToNowPlaying.bind(this)}/>
       </div>
     )
