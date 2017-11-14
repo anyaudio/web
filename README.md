@@ -10,6 +10,10 @@ Enjoy live at https://anyaudio.github.io/anyaudio-web-app/.
 [![Build Status](https://travis-ci.org/anyaudio/anyaudio-web-app.svg?branch=master)](https://travis-ci.org/anyaudio/anyaudio-web-app)
 
 
+## Why is the UI so shitty?
+
+Because right now, there is nothing done regarding it. Things will be better once the internal components are functional.
+
 ## Development
 
 ### Building dependencies
