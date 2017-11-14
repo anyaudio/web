@@ -11,7 +11,9 @@
 .video-grid-card {
   margin: 10px;
 }
-
+video-grid-card > img:hover, .button {
+  cursor: pointer;
+}
 .video-grid-details {
   height: 70px;
 }
