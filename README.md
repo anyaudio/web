@@ -8,6 +8,7 @@ Enjoy live at https://anyaudio.github.io/anyaudio-web-app/.
 
 [![Join the chat at https://gitter.im/Any-Audio/anyaudio-web-app](https://badges.gitter.im/Any-Audio/anyaudio-web-app.svg)](https://gitter.im/Any-Audio/anyaudio-web-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/anyaudio/anyaudio-web-app.svg?branch=master)](https://travis-ci.org/anyaudio/anyaudio-web-app)
+[![Dependency Status](https://gemnasium.com/badges/github.com/anyaudio/anyaudio-web-app.svg)](https://gemnasium.com/github.com/anyaudio/anyaudio-web-app)
 
 
 ## Why is the UI so shitty?
