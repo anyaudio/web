@@ -17,6 +17,11 @@ Because right now, there is nothing done regarding it. Things will be better onc
 
 ## Development
 
+### Required packages
+```bash
+npm install -g yarn
+```
+
 ### Building dependencies
 ```bash
 yarn install
