@@ -27,7 +27,7 @@ export default class Player extends React.Component {
         notify('Playing now...', newProps.currentSong.title);
       });
     this.props.getSuggestions(newProps.currentSong.suggest_url);
-    this.props.playedNext()
+    this.props.playedNext(newProps.currentSong)
   }
 
   render() {

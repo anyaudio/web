@@ -1,21 +1,23 @@
 import {connect} from 'react-redux';
 
 import Sidebar from '../components/sideBar';
-import {removeVideo, playedNext} from "../actions/nowPlayingActions";
+import {removeSong, playedNext} from "../actions/nowPlayingActions";
 import {playSong} from "../actions/playerActions";
 
 function mapStateToProps(state) {
   return {
-    videos: state.nowPlaying.videos,
-    suggestedVideos: state.nowPlaying.suggestedVideos,
-    dispatchNext: state.nowPlaying.dispatchNext
+    nextSongs: state.nowPlaying.nextSongs,
+    prevSongs: state.nowPlaying.previousSongs,
+    suggestedSongs: state.nowPlaying.suggestedSongs,
+    dispatchNext: state.nowPlaying.dispatchNext,
+    currentSong: state.player.currentSong
   }
 }
 
 export default connect(
   mapStateToProps,
   {
-    removeVideo: removeVideo,
+    removeSong: removeSong,
     playedNext: playedNext,
     playSong: playSong
   }

@@ -1,33 +1,39 @@
 import {actionType} from "../actions/nowPlayingActions";
-import {removeDuplicateVideos} from "../utils/removeDuplicates";
+import {removeDuplicateSongs} from "../utils/removeDuplicates";
+import songInArray from '../utils/songInArray';
 
-const initialState = {videos: [], suggestedVideos: [], dispatchNext: false};
+const initialState = {nextSongs: [], suggestedSongs: [], dispatchNext: false, previousSongs: []};
 
 export function nowPlaying(state = initialState, action) {
   switch (action.type) {
-    case actionType.videoAdd:
-      let videos = state.videos.slice(0);
-      videos.push(action.video);
-      return {...state, videos: removeDuplicateVideos(videos)};
+    case actionType.songAdd:
+      let songs = state.nextSongs.slice(0);
+      songs.push(action.song);
+      return {...state, nextSongs: removeDuplicateSongs(songs)};
 
-    case actionType.videoRemove:
-      let newVideos = state.videos.filter(video => video.id !== action.video.id);
-      return {...state, videos: newVideos};
+    case actionType.songRemove:
+      let newSongs = state.nextSongs.filter(song => song.id !== action.song.id);
+      return {...state, nextSongs: newSongs};
 
     case actionType.playNext:
       return {...state, dispatchNext: true};
 
     case actionType.playedNext:
-      return {...state, dispatchNext: false};
+      let prev = state.previousSongs.slice(0);
+      prev.push(action.song);
+      console.log('Previous', prev);
+      prev = removeDuplicateSongs(prev);
+      console.log('Previous Now', prev);
+      return {...state, dispatchNext: false, previousSongs: prev};
 
     case actionType.getSuggestions:
       let suggestions;
-      if (action.suggestedVideos) {
-        suggestions = action.suggestedVideos.slice(0, 5)
+      if (action.suggestedSongs) {
+        suggestions = action.suggestedSongs.filter(x => !(songInArray(x, state.previousSongs) || songInArray(x, state.nextSongs))).slice(0, 5);
       } else {
         suggestions = [];
       }
-      return {...state, suggestedVideos: suggestions};
+      return {...state, suggestedSongs: removeDuplicateSongs(suggestions)};
 
     default:
       return state;
