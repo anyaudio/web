@@ -18,10 +18,7 @@ export default class Header extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to='/'>[LOGO] </Link>
-            <span className='hidden-sm hidden-xs'>
-              <Link to='/'>AnyAudio</Link>
-            </span>
+            g<Link to='/'>AnyAudio</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Form pullLeft>
