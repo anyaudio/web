@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 
 import Sidebar from '../components/sideBar';
-import {removeSong, playedNext} from "../actions/nowPlayingActions";
+import {removeSong, playedNext, addSong} from "../actions/nowPlayingActions";
 import {playSong} from "../actions/playerActions";
 
 function mapStateToProps(state) {
@@ -19,6 +19,7 @@ export default connect(
   {
     removeSong: removeSong,
     playedNext: playedNext,
-    playSong: playSong
+    playSong: playSong,
+    addToNowPlaying: addSong
   }
 )(Sidebar);

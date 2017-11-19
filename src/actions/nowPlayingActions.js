@@ -8,7 +8,7 @@ export const actionType = {
   getSuggestions: 'GET_SUGGESTIONS'
 };
 
-export function addVideo(song) {
+export function addSong(song) {
   return dispatch => dispatch({type: actionType.songAdd, song});
 }
 

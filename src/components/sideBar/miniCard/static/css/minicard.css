@@ -1,0 +1,28 @@
+.song-card-list {
+  width: inherit;
+  display: flex;
+  flex-flow: row;
+  height: 50px;
+  margin: 8px 0;
+}
+
+.song-card-list-thumb {
+  width: 50px;
+  height: 50px;
+}
+
+.song-card-list-details {
+  display: flex;
+  flex-flow: column;
+  margin: 2px 0 0 10px;
+}
+
+.song-card-list-time {
+  color: #f00;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.song-card-list-title {
+  overflow: hidden;
+}
