@@ -18,7 +18,7 @@ export default class Header extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            g<Link to='/'>AnyAudio</Link>
+            <Link to='/'>AnyAudio</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Form pullLeft>
