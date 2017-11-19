@@ -5,7 +5,7 @@ export const songInArray = (song, arr) => {
 };
 
 export const anyCommonSong = (left_arr, right_arr) => {
-  return _.some(left_arr, left_item => _.some(right_arr, right_item => left_item.id === right_item.id));
+  return _.difference(left_arr, right_arr).length !== left_arr.length;
 };
 
 export const removeDuplicateIn = (playListToRemoveFrom, otherPlaylist) => {
