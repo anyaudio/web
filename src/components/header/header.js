@@ -5,6 +5,16 @@ import {Navbar, FormGroup, FormControl, Button} from 'react-bootstrap';
 import '../header/static/css/header.css';
 
 export default class Header extends React.Component {
+  componentDidMount() {
+    document.getElementById('search-input')
+      .addEventListener('keyup', event => {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+          this.search();
+        }
+      });
+  }
+
   search() {
     const query = document.getElementById('search-input').value.replace(/^\s+|\s+$/g, '');  // Trailing whitespaces
     if (query.length === 0) {
