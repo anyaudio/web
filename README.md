@@ -22,9 +22,9 @@ Because right now, there is nothing done regarding it. Things will be better onc
 npm install -g yarn
 ```
 
-### Building dependencies
+### Installing dependencies
 ```bash
-yarn install
+yarn
 ```
 
 ### Starting Dev Server
@@ -46,3 +46,5 @@ yarn test
 ```bash
 yarn deploy
 ```
+
+**Note:** Write access to repository is required.
