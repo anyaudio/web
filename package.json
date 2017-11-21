@@ -56,7 +56,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "deploy": "hash=`git rev-parse HEAD` && yarn build && gh-pages -b gh-pages -d build -m \"Build for $hash\""
+    "deploy": "hash=`git rev-parse HEAD` && yarn build && gh-pages -b gh-pages -d build -m \"Build for $hash\"",
+    "deploy-push-only": "hash=`git rev-parse HEAD` && gh-pages -b gh-pages -d build -m \"Build for $hash\""
   },
   "jest": {
     "collectCoverageFrom": [
