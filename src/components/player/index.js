@@ -18,6 +18,44 @@ export default class Player extends React.Component {
     audioElement.addEventListener('ended', (e) => {
       this.props.playNext();
     });
+
+    // Effects on keypress while active on body
+    window.addEventListener('keydown', (e) => {
+      if (e.target === document.body) {
+        switch (e.keyCode) {
+          case 32:  // Space
+            if (audioElement.paused === false) {
+              audioElement.pause();
+            } else {
+              audioElement.play();
+            }
+            e.preventDefault();
+            break;
+          case 39:  // Right arrow
+            audioElement.currentTime += 10;
+            e.preventDefault();
+            break;
+          case 37:  // Left arrow
+            audioElement.currentTime -= 10;
+            e.preventDefault();
+            break;
+          case 38:  // Up arrow
+            audioElement.volume = audioElement.volume <= 0.9 ? audioElement.volume + 0.1 : 1;
+            e.preventDefault();
+            break;
+          case 40:  // Down arrow
+            audioElement.volume = audioElement.volume >= 0.1 ? audioElement.volume - 0.1 : 0;
+            e.preventDefault();
+            break;
+          case 78:
+            this.props.playNext();
+            e.preventDefault();
+            break;
+          default:
+            // Do nothing
+        }
+      }
+    });
   }
 
   componentWillReceiveProps(newProps) {
