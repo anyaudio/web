@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Navbar, FormGroup, FormControl, Button} from 'react-bootstrap';
 
-import '../header/static/css/header.css';
+import Logo from '../header/static/img/any_audio_logo.png';
+import AndroidIcon from '../header/static/img/androild_icon.png';
+import '../header/static/css/header.css'
 
 export default class Header extends React.Component {
   componentDidMount() {
@@ -28,19 +29,34 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to='/'>AnyAudio</Link>
-          </Navbar.Brand>
-        </Navbar.Header>
-        <Navbar.Form pullLeft>
-          <FormGroup>
-            <FormControl id='search-input' type="text" placeholder="Search"/>
-          </FormGroup>
-          <Button type="submit" onClick={this.search.bind(this)}>Submit</Button>
-        </Navbar.Form>
-      </Navbar>
+      <div>
+        <header className="app-header">
+          <div className="uk-container">
+            <nav className="uk-navbar uk-navbar-container uk-navbar-transparent">
+
+              <div className="uk-navbar-left">
+                <a className="uk-navbar-toggle" is uk-navbar-toggle-icon href="#"></a>
+                <Link className="uk-navbar-item uk-logo" to='/'><img src={Logo} alt=""/></Link>
+              </div>
+
+              <div className="anyaudio-search-container uk-navbar-left uk-margin-large-left  uk-nav-center-sm">
+                <form className="uk-search uk-search-default anyaudio-search" action="javascript:void(0)" type="submit" onSubmit={this.search.bind(this)}>
+
+                  <span is className="uk-search-icon" uk-icon="icon: search"></span>
+                  <input className="uk-search-input border-radius40" id='search-input' type="text" placeholder="Search" />
+                </form>
+              </div>
+
+              <div className="uk-navbar-right uk-margin-large-left">
+                <a className="border-radius40 uk-button uk-button-default uk-button-large app-download-btn">
+                  <img src={AndroidIcon} alt="Android Icon"/>
+                  <span className="uk-margin-small-left"> Download APP</span>
+                 </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+      </div>
     )
   }
 }

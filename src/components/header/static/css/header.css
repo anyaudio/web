@@ -2,3 +2,51 @@
   position: relative;
   min-height: 50px;
 }
+
+Header.app-header {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  background: #fff;
+  position: fixed;
+  width: 100vw;
+  z-index: 999;
+}
+
+.uk-logo > img {
+  height:56px;
+}
+
+.anyaudio-search.uk-search-default {
+  width: 100%;
+}
+
+.anyaudio-search.uk-search-default .uk-search-input {
+  height: 56px;
+  max-width: 687px;
+  padding-left: 64px !important;
+}
+
+.border-radius40 {
+  border-radius: 40px !important;
+}
+
+.anyaudio-search-container {
+  flex-grow: 1;
+}
+
+.uk-search.anyaudio-search .uk-search-icon {
+  left: 16px;
+}
+
+.uk-button.app-download-btn {
+  background-image: linear-gradient(90deg, rgba(244, 67, 54, 0.87) 0%, rgba(255, 167, 38, 0.87) 100%);
+  border: 0;
+  color: white;
+  transition: all 0.3s;
+  padding: 0 30px;
+}
+
+.uk-button.app-download-btn:hover {
+  color: white;
+  border: 0;
+  background-image: linear-gradient(90deg, rgba(244, 67, 54, 0.71) 0%, rgba(255, 167, 38, 0.71) 100%);
+}
