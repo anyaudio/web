@@ -34,9 +34,6 @@ const Root = ({store}) => (
         <div className='page-bottom'>
           <Player />
         </div>
-        <div className='page-bottom'>
-          <Player />
-        </div>
       </div>
     </BrowserRouter>
   </Provider>
