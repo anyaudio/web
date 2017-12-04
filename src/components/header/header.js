@@ -35,14 +35,14 @@ export default class Header extends React.Component {
             <nav className="uk-navbar uk-navbar-container uk-navbar-transparent">
 
               <div className="uk-navbar-left">
-                <a className="uk-navbar-toggle" is uk-navbar-toggle-icon href="#"></a>
+                <a className="uk-navbar-toggle uk-margin-small-right" uk-icon="icon: menu;ratio: 1.5" href="#!"></a>
                 <Link className="uk-navbar-item uk-logo" to='/'><img src={Logo} alt=""/></Link>
               </div>
 
               <div className="anyaudio-search-container uk-navbar-left uk-margin-large-left  uk-nav-center-sm">
                 <form className="uk-search uk-search-default anyaudio-search" action="javascript:void(0)" type="submit" onSubmit={this.search.bind(this)}>
 
-                  <span is className="uk-search-icon" uk-icon="icon: search"></span>
+                  <span className="uk-search-icon" uk-icon="icon: search"></span>
                   <input className="uk-search-input border-radius40" id='search-input' type="text" placeholder="Search" />
                 </form>
               </div>
