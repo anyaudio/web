@@ -1,6 +1,7 @@
 .video-card-grid .video-thumb {
   background-size: cover;
   position: relative;
+  cursor: pointer;
 }
 
 .video-card-grid .video-thumb .thumb-overlay {
@@ -32,6 +33,7 @@
   font-size: 14px;
   color: rgba(0, 0, 0, 0.87);
   margin-bottom: 2px;
+  cursor: pointer;
 }
 
 .video-card-grid .video-meta .video-channel, .video-card-grid .video-meta .video-views {
