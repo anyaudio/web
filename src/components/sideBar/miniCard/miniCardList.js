@@ -9,7 +9,7 @@ export default class MiniCardList extends React.Component {
         return <MiniCard song={song} active={true} playSong={this.props.playSong}
                          addToNowPlaying={this.props.addToNowPlaying} key={song.id}/>
       }
-      return <MiniCard song={song} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}
+      return <MiniCard name={this.props.name} song={song} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}
                        key={song.id}/>
     });
   }

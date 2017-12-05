@@ -1,0 +1,19 @@
+.sidebar {
+  width: 375px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.sidebar .sidebar-title {
+  padding-left: 16px;
+}
+
+.sidebar-item-container {
+  padding: 16px 32px;
+}
+
+.sidebar .related-song-list-container .related-songs-list {
+  max-height: 200px;
+  overflow-y: auto;
+  background: #f5f5f5;
+}

@@ -7,6 +7,18 @@ body {
   text-transform: uppercase;
 }
 
+.text-color-grey87 {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-11 {
+  font-size: 11px;
+}
+
 .title-deco-sm {
   font-size: 14px;
 }
@@ -48,5 +60,21 @@ body {
 }
 
 .page .page-middle {
-  margin-top: 120px;
+  margin-top: 80px;
+}
+
+.uk-container.content-container {
+  padding-top: 40px;
+  margin-right: 375px;
+}
+
+.sidebar-container {
+  padding-top: 40px;
+  top: 80px;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  min-height: 100vh;
+  right: 0;
+  border-left: 1px solid #0000001f;
 }

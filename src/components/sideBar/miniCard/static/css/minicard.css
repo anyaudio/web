@@ -2,13 +2,11 @@
   width: inherit;
   display: flex;
   flex-flow: row;
-  height: 50px;
-  margin: 8px 0;
 }
 
 .song-card-list-thumb {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
 .song-card-list-details {
@@ -25,4 +23,12 @@
 
 .song-card-list-title {
   overflow: hidden;
+}
+
+.song-card-list {
+  justify-content: space-between;
+}
+
+.song-card-list > div {
+  cursor: pointer;
 }

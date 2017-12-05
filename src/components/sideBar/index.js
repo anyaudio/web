@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MiniCardList from "./miniCard/miniCardList";
+import './static/css/index.css'
 
 export default class SideBar extends React.Component {
 
@@ -24,20 +25,24 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="sidebar">
         <div>
-          <b>Previous Songs:</b>
-          <MiniCardList songs={this.props.prevSongs} currentSong={this.props.currentSong} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
-        </div>
-        <hr/>
-        <div>
-          <b>Upcoming songs:</b>
-          <MiniCardList songs={this.props.nextSongs} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
-        </div>
-        <hr/>
-        <div>
-          <b>Suggestions:</b>
-          <MiniCardList songs={this.props.suggestedSongs} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
+          {/*Related Song*/}
+          <div className="related-song-list-container">
+
+            <div className="sidebar-title uk-text-uppercase font-size-14">Related Songs</div>
+            <div className="sidebar-item-container related-songs-list uk-margin-small-top">
+              <MiniCardList name="related" songs={this.props.suggestedSongs} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
+            </div>
+          </div>
+
+          <div className="upnext-song-list-container uk-margin-medium-top">
+
+            <div className="sidebar-title uk-text-uppercase font-size-14">Coming Up Next</div>
+            <div className="sidebar-item-container related-songs-list uk-margin-small-top">
+              <MiniCardList name="queue" songs={this.props.nextSongs} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
+            </div>
+          </div>
         </div>
       </div>
     )

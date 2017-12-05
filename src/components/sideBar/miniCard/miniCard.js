@@ -13,19 +13,35 @@ export default class MiniCard extends React.Component {
   }
 
   render() {
+
+    const MAX_TITLE_LENGTH = 24;
+
+    let videoTitle = this.props.song.title;
+
+    if(videoTitle.length > MAX_TITLE_LENGTH) {
+      videoTitle =  videoTitle.substring(0, MAX_TITLE_LENGTH)+'... ';
+    }
+
+    console.log(this.props.name);
+
     return (
-      <div className='song-card-list row'>
-        <img src={this.props.song.thumb} className='img-responsive img-circle song-card-list-thumb'
-             alt='IMG' onClick={this.play.bind(this)}/>
-        <div className='song-card-list-details col-xs-11 col-sm-11 col-md-10 col-lg-8'>
-          <div className='song-card-list-time'>
-            {this.props.song.length}
-          </div>
-          <div className='song-card-list-title'>
-            {this.props.active ? <b>{this.props.song.title}</b> : <p>{this.props.song.title}</p>}
+      <div className='song-card-list uk-margin-small-bottom uk-flex'>
+        <div className="uk-flex"  onClick={this.play.bind(this)}>
+          <img src={this.props.song.thumb} className='uk-border-circle song-card-list-thumb'
+               alt='IMG'/>
+          <div className='song-card-list-details col-xs-11 col-sm-11 col-md-10 col-lg-8'>
+            <div className='song-card-list-title text-color-grey87'>
+              {this.props.active ? <b>{videoTitle}</b> : <div>{videoTitle}</div>}
+            </div>
+            <div className='song-card-list-channel font-size-11'>
+              {this.props.active ? <b>{this.props.song.uploader}</b> : <div>{this.props.song.uploader}</div>}
+            </div>
           </div>
         </div>
-        <FontAwesome name='plus' onClick={this.addToNowPlaying.bind(this)}/>
+        <div className="add-to-upnext">
+          {this.props.name === 'related'?<button name='plus' onClick={this.addToNowPlaying.bind(this)} className="uk-icon-link uk-icon" uk-icon="icon:plus;"/>:
+            <button name='plus' className="uk-icon-link uk-icon" uk-icon="icon:close;"/>}
+        </div>
       </div>
     )
   }

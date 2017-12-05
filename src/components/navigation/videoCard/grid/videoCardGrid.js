@@ -19,7 +19,7 @@ export default class VideoCardGrid extends React.Component {
 
   render() {
 
-    const MAX_TITLE_LENGTH = 45;
+    const MAX_TITLE_LENGTH = 35;
 
     let videoTitle = this.props.video.title;
 
