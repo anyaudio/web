@@ -18,20 +18,48 @@ export default class VideoCardGrid extends React.Component {
   }
 
   render() {
+
+    const MAX_TITLE_LENGTH = 45;
+
+    let videoTitle = this.props.video.title;
+
+    if(videoTitle.length > MAX_TITLE_LENGTH) {
+      videoTitle =  videoTitle.substring(0, MAX_TITLE_LENGTH)+'... ';
+    }
+
+
     return (
-      <div className='col-xs-5 col-sm-5 col-md-2 col-lg-2 video-grid-card'>
-        <img className='img-responsive' src={this.props.video.thumb} alt='Loading...'
-             onClick={this.playSong.bind(this)}/>
-        <div className='video-grid-details'>
-          <div className='video-grid-title'>
-            <span  className='video-grid-title-title'>{this.props.video.title}</span>
-            <span className='video-grid-title-add'>
-              <FontAwesome name='download' onClick={this.downloadSong.bind(this)}/>
-              <FontAwesome name='plus' onClick={this.addToNowPlaying.bind(this)} />
-            </span>
+      <div  className="uk-width-1-5 video-card-grid uk-margin-small-bottom">
+        <div className="">
+          <div className="video-thumb" onClick={this.playSong.bind(this)}>
+            <div className="play-btn">
+              <svg width="40" height="39" xmlns="http://www.w3.org/2000/svg"><g fill="none" fillRule="evenodd" opacity=".951"><path d="M19.703.277C8.876.277.088 8.855.088 19.426c0 10.57 8.788 19.149 19.615 19.149 10.827 0 19.615-8.58 19.615-19.15C39.318 8.856 30.53.278 19.703.278z" fillOpacity=".75" fill="#FFF"/><path fillOpacity=".87" fill="#000" d="M17.249 26.973V11.879l10.307 7.547z"/></g></svg>
+            </div>
+            <img src={this.props.video.thumb} alt=""/>
+            <div className="thumb-overlay"></div>
           </div>
-          <div className='video-grid-uploader'>{this.props.video.uploader}</div>
-          <div className='video-grid-views'>{this.props.video.views}</div>
+
+          <div className="video-meta">
+            <div>
+              <div className="video-title">{videoTitle}</div>
+              <div className="video-channel">{this.props.video.uploader}</div>
+              <div className="video-views">{this.props.video.views}</div>
+            </div>
+
+            <div className="more-option uk-inline">
+              <button className="uk-icon-link" uk-icon="icon:more-vertical; ratio:0.8"></button>
+              <div uk-dropdown="mode: click;pos: bottom-right">
+                <ul className="uk-nav uk-dropdown-nav">
+                  <li><a href="#" name='plus' onClick={this.addToNowPlaying.bind(this)}>
+                    <span className="uk-margin-small-right" uk-icon="icon:plus"></span>
+                    Add To Queue</a></li>
+                  <li><a href="#" name='download' onClick={this.downloadSong.bind(this)}>
+                    <span className="uk-margin-small-right" uk-icon="icon:download"></span>
+                    Download</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )

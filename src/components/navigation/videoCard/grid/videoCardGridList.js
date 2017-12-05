@@ -6,9 +6,9 @@ import './static/css/videoCardGrid.css';
 export default class VideoCardGridList extends React.Component {
   getPlaylist(name, videos) {
     return (
-      <div className='playlist-complete' key={name}>
+      <div className='playlist-complete uk-margin-medium-bottom' key={name}>
         <div className='playlist-title'>{name}</div>
-        <div className='row'>
+        <div className='uk-grid'>
           {videos.map(video => <VideoCardGrid video={video} key={video.id} playSong={this.props.playSong}
                                               addToNowPlaying={this.props.addToNowPlaying}/>)}
         </div>

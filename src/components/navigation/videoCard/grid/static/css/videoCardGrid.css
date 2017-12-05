@@ -1,46 +1,39 @@
-.playlist-complete {
-  margin-bottom: 45px;
+.video-card-grid .video-thumb {
+  background-size: cover;
+  position: relative;
 }
 
-.playlist-title {
-  font-size: 18px;
-  font-weight: 800;
-  margin: 20px 0 0 10px;
-}
-
-.video-grid-card {
-  margin: 10px;
-}
-
-.video-grid-details {
-  height: 70px;
-}
-
-.video-grid-title {
-  display: flex;
-  flex-flow: row;
-  font-size: 13px;
-  font-weight: 800;
-  max-height: 40px;
-  overflow: hidden;
-}
-
-.video-grid-uploader {
-  opacity: 0.9;
-  font-size: 12px;
-}
-
-.video-grid-views {
-  opacity: 0.8;
-  font-size: 11px;
-}
-
-.video-grid-title-title {
-  width: 90%;
-}
-
-.video-grid-title-add {
-  width: 10%;
+.video-card-grid .video-thumb .thumb-overlay {
+  width: 100%;
+  height: 75%;
+  position: absolute;
   top: 0;
-  margin-top: 4px;
+  left: 0;
+  border-top: 1.2em solid #fff;
+  border-bottom: 1.2em solid #fff;
+  outline-offset: -1px;
+  outline: 2px solid #fff;
+}
+
+.video-card-grid .video-thumb .play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.video-card-grid .video-meta {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-card-grid .video-meta .video-title {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 2px;
+}
+
+.video-card-grid .video-meta .video-channel, .video-card-grid .video-meta .video-views {
+  font-size: 11px;
 }

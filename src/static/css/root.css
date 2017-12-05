@@ -23,3 +23,7 @@ body {
   padding: 5px;
   background-color: #faa;
 }
+
+.page .page-middle {
+  margin-top: 96px;
+}
