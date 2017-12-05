@@ -50,3 +50,10 @@ Header.app-header {
   border: 0;
   background-image: linear-gradient(90deg, rgba(244, 67, 54, 0.71) 0%, rgba(255, 167, 38, 0.71) 100%);
 }
+
+.app-header >.uk-container {
+  margin-left: -16px;
+  margin-right: 0;
+  max-width: 100vw;
+
+}
