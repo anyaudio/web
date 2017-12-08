@@ -78,3 +78,9 @@ body {
   right: 0;
   border-left: 1px solid #0000001f;
 }
+
+@media (max-width: 960px) {
+  .uk-container.content-container {
+    margin-right: auto;
+  }
+}

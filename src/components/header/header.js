@@ -36,7 +36,7 @@ export default class Header extends React.Component {
 
               <div className="uk-navbar-left">
                 <a className="uk-navbar-toggle uk-margin-small-right" uk-icon="icon: menu;ratio: 1.5" href="#!"></a>
-                <Link className="uk-navbar-item uk-logo" to='/'><img src={Logo} alt=""/></Link>
+                <Link className="uk-navbar-item uk-logo uk-visible@s" to='/'><img src={Logo} alt=""/></Link>
               </div>
 
               <div className="anyaudio-search-container uk-navbar-left uk-margin-large-left  uk-nav-center-sm">
@@ -48,7 +48,7 @@ export default class Header extends React.Component {
               </div>
 
               <div className="uk-navbar-right uk-margin-large-left">
-                <a className="border-radius40 uk-button uk-button-default uk-button-large app-download-btn">
+                <a className="uk-visible@m border-radius40 uk-button uk-button-default uk-button-large app-download-btn">
                   <img src={AndroidIcon} alt="Android Icon"/>
                   <span className="uk-margin-small-left"> Download APP</span>
                  </a>

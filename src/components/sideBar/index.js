@@ -25,7 +25,7 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="sidebar">
+      <div className="sidebar uk-visible@m">
         <div>
           {/*Related Song*/}
           <div className="related-song-list-container">

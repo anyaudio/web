@@ -19,7 +19,7 @@ export default class VideoCardGrid extends React.Component {
 
   render() {
 
-    const MAX_TITLE_LENGTH = 35;
+    const MAX_TITLE_LENGTH = 33;
 
     let videoTitle = this.props.video.title;
 
@@ -29,7 +29,7 @@ export default class VideoCardGrid extends React.Component {
 
 
     return (
-      <div  className="uk-width-1-5 video-card-grid uk-margin-small-bottom">
+      <div  className="uk-width-1-4@l uk-width-1-3@m uk-width-1-3@s video-card-grid uk-margin-small-bottom">
         <div>
           <div className="video-thumb" onClick={this.playSong.bind(this)}>
             <div className="play-btn">
