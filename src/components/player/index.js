@@ -18,6 +18,10 @@ export default class Player extends React.Component {
     audioElement.addEventListener('ended', (e) => {
       this.props.playNext();
     });
+    audioElement.addEventListener('error', (e) => {
+      console.log('ERROR: Error while playing audio ', e);
+      this.props.playNext();
+    });
 
     // Effects on keypress while active on body
     window.addEventListener('keydown', (e) => {
