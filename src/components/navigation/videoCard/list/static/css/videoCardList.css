@@ -5,9 +5,14 @@
 .video-card-list {
   width: inherit;
   display: flex;
+  justify-content: space-between;
   flex-flow: row;
   height: 80px;
   margin: 8px 0;
+}
+
+.video-card-list-data {
+  display: flex;
 }
 
 .video-card-list-thumb {
