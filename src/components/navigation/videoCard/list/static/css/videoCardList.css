@@ -18,6 +18,7 @@
 .video-card-list-thumb {
   width: 80px;
   height: 80px;
+  cursor: pointer;
 }
 
 .video-card-list-details {
