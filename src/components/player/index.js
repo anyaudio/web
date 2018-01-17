@@ -145,7 +145,6 @@ export default class Player extends React.Component {
           </audio>
         </div>
         {this.props.currentSong && this.props.currentSong.title}
-        <button onClick={this.props.playNext}>Next</button>
       </div>
     )
   }
