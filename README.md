@@ -4,7 +4,7 @@
 
 A front end to utilise AnyAudio API.
 
-Enjoy live at https://anyaudio.github.io/anyaudio-web-app/.
+Enjoy live at https://web.anyaudio.in/.
 
 [![Join the chat at https://gitter.im/Any-Audio/anyaudio-web-app](https://badges.gitter.im/Any-Audio/anyaudio-web-app.svg)](https://gitter.im/Any-Audio/anyaudio-web-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/anyaudio/anyaudio-web-app.svg?branch=master)](https://travis-ci.org/anyaudio/anyaudio-web-app)
