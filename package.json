@@ -1,6 +1,6 @@
 {
   "name": "anyaudio-web-app",
-  "homepage": "https://anyaudio.github.io/anyaudio-web-app",
+  "homepage": "https://web.anyaudio.in",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

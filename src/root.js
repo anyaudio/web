@@ -16,7 +16,7 @@ import Sidebar from './containers/sideBarContainer';
 // Router root
 const Root = ({store}) => (
   <Provider store={store}>
-    <BrowserRouter basename='/anyaudio-web-app'>
+    <BrowserRouter>
       <div className='page'>
         <div className='page-top'>
           <Header />
