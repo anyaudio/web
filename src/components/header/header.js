@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Logo from '../header/static/img/any_audio_logo.png';
 import '../header/static/css/header.css'
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   componentDidMount() {
     let searchElement = document.getElementById('search-input');
     searchElement && searchElement
@@ -20,7 +21,7 @@ export default class Header extends React.Component {
     const searchElement = document.getElementById('search-input');
     const query = searchElement.value.replace(/^\s+|\s+$/g, '');  // Trailing whitespaces
     if (query.length === 0) {
-      return
+      return;
     }
     searchElement.blur();
     this.props.history.push('/search/' + query);
@@ -51,3 +52,9 @@ export default class Header extends React.Component {
     )
   }
 }
+
+Header.propTypes = {
+  history: PropTypes.object.isRequired
+};
+
+export default Header;
