@@ -15,7 +15,7 @@ export default class Player extends React.Component {
   }
 
   componentDidMount() {
-    // Adding keyup event listener to document element
+    // Adding keydown event listener to document element
     document.addEventListener('keydown', (e) => this.handleKeyboardEvents(e));
 
     // Audio player configuration
