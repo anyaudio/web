@@ -16,7 +16,7 @@ export default class Player extends React.Component {
 
   componentDidMount() {
     // Adding keydown event listener to document element
-    document.addEventListener('keydown', (e) => this.handleKeyboardEvents(e));
+    window.addEventListener('keydown', (e) => this.handleKeyboardEvents(e));
 
     // Audio player configuration
     plyr.setup({
@@ -85,8 +85,9 @@ export default class Player extends React.Component {
     }
   }
 
-  handleKeyboardEvents = ({ keyCode }) => {
-    switch (keyCode) {
+  handleKeyboardEvents = (e) => {
+    e.preventDefault();
+    switch (e.keyCode) {
       case keys.SPACE:
         this.audioElement.paused === false ? this.audioElement.pause() : this.audioElement.play();
         break;
