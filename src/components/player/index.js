@@ -15,7 +15,7 @@ export default class Player extends React.Component {
   }
 
   componentDidMount() {
-    // Adding keydown event listener to document element
+    // Adding keydown event listener to window element
     window.addEventListener('keydown', (e) => this.handleKeyboardEvents(e));
 
     // Audio player configuration
@@ -85,23 +85,27 @@ export default class Player extends React.Component {
     }
   }
 
-  handleKeyboardEvents = (e) => {
-    e.preventDefault();
+  handleKeyboardEvents(e) {
     switch (e.keyCode) {
       case keys.SPACE:
         this.audioElement.paused === false ? this.audioElement.pause() : this.audioElement.play();
+        e.preventDefault();
         break;
       case keys.RIGHT_ARROW:
         this.audioElement.currentTime += 10;
+        e.preventDefault();
         break;
       case keys.LEFT_ARROW:
         this.audioElement.currentTime -= 10;
+        e.preventDefault();
         break;
       case keys.UP_ARROW:
         this.audioElement.volume = this.audioElement.volume <= 0.9 ? this.audioElement.volume + 0.1 : 1;
+        e.preventDefault();
         break;
       case keys.DOWN_ARROW:
         this.audioElement.volume = this.audioElement.volume >= 0.1 ? this.audioElement.volume - 0.1 : 0;
+        e.preventDefault();
         break;
       case keys.N:
         this.props.playNext();
@@ -111,6 +115,7 @@ export default class Player extends React.Component {
           if (searchElement) {
             searchElement.focus();
           }
+          e.preventDefault();
           break;
       default:
         return;
