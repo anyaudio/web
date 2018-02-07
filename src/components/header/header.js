@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { keys } from '../../constants'
 
 import Logo from '../header/static/img/any_audio_logo.png';
 import '../header/static/css/header.css';
@@ -11,7 +12,7 @@ class Header extends React.Component {
     if (searchElement) {
       searchElement.addEventListener('keyup', event => {
         event.preventDefault();
-        if (event.keyCode === 13) {
+        if (event.keyCode === keys.ENTER) {
           this.search();
         }
       });
