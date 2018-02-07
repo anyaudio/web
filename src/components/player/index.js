@@ -5,6 +5,7 @@ import 'plyr/dist/plyr.css';
 
 import api from '../../utils/api';
 import notify from '../../utils/notification';
+import { keys } from '../../constants';
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -14,7 +15,10 @@ export default class Player extends React.Component {
   }
 
   componentDidMount() {
+    // Adding keydown event listener to window element
+    window.addEventListener('keydown', (e) => this.handleKeyboardEvents(e));
 
+    // Audio player configuration
     plyr.setup({
       html: [
         "<div class='plyr__controls'>",
@@ -58,7 +62,7 @@ export default class Player extends React.Component {
             "<progress class='plyr__volume--display' max='10' value='0' role='presentation'></progress>",
           "</span>",
         "</div>"].join("")
-  });
+    });
 
     let audioElement = document.getElementById('audio-player');
     if (!audioElement) {
@@ -72,51 +76,6 @@ export default class Player extends React.Component {
       this.props.playNext();
     });
 
-    // Effects on keypress while active on body
-    window.addEventListener('keydown', (e) => {
-      if (e.target === document.body) {
-        switch (e.keyCode) {
-          case 32:  // Space
-            if (audioElement.paused === false) {
-              audioElement.pause();
-            } else {
-              audioElement.play();
-            }
-            e.preventDefault();
-            break;
-          case 39:  // Right arrow
-            audioElement.currentTime += 10;
-            e.preventDefault();
-            break;
-          case 37:  // Left arrow
-            audioElement.currentTime -= 10;
-            e.preventDefault();
-            break;
-          case 38:  // Up arrow
-            audioElement.volume = audioElement.volume <= 0.9 ? audioElement.volume + 0.1 : 1;
-            e.preventDefault();
-            break;
-          case 40:  // Down arrow
-            audioElement.volume = audioElement.volume >= 0.1 ? audioElement.volume - 0.1 : 0;
-            e.preventDefault();
-            break;
-          case 78:  // n => play next song
-            this.props.playNext();
-            e.preventDefault();
-            break;
-          case 70:  // f => activate search box input
-            let searchElement = document.getElementById('search-input');
-            if (searchElement) {
-              searchElement.focus();
-            }
-            e.preventDefault();
-            break;
-          default:
-            // Do nothing
-        }
-      }
-    });
-
     // Next on button click
     let nextButton = document.getElementById('next-btn');
     if (nextButton) {
@@ -125,6 +84,43 @@ export default class Player extends React.Component {
       }
     }
   }
+
+  handleKeyboardEvents(e) {
+    switch (e.keyCode) {
+      case keys.SPACE:
+        this.audioElement.paused === false ? this.audioElement.pause() : this.audioElement.play();
+        e.preventDefault();
+        break;
+      case keys.RIGHT_ARROW:
+        this.audioElement.currentTime += 10;
+        e.preventDefault();
+        break;
+      case keys.LEFT_ARROW:
+        this.audioElement.currentTime -= 10;
+        e.preventDefault();
+        break;
+      case keys.UP_ARROW:
+        this.audioElement.volume = this.audioElement.volume <= 0.9 ? this.audioElement.volume + 0.1 : 1;
+        e.preventDefault();
+        break;
+      case keys.DOWN_ARROW:
+        this.audioElement.volume = this.audioElement.volume >= 0.1 ? this.audioElement.volume - 0.1 : 0;
+        e.preventDefault();
+        break;
+      case keys.N:
+        this.props.playNext();
+        break;
+      case keys.F:
+          let searchElement = document.getElementById('search-input');
+          if (searchElement) {
+            searchElement.focus();
+          }
+          e.preventDefault();
+          break;
+      default:
+        return;
+      }
+    };
 
   componentWillReceiveProps(newProps) {
     api.fetchStreamURL(newProps.currentSong.stream_url)
@@ -140,7 +136,7 @@ export default class Player extends React.Component {
     return (
       <div>
         <div style={{display: this.state.streamURL ? 'block' : 'none'}}>
-          <audio id='audio-player' src={this.state.streamURL} autoPlay={true} controls={true} preload='auto'>
+          <audio id='audio-player' ref={ref => this.audioElement = ref} src={this.state.streamURL} autoPlay={true} controls={true} preload='auto'>
             Audio not supported!!
           </audio>
         </div>
