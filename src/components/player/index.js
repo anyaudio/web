@@ -64,14 +64,10 @@ export default class Player extends React.Component {
         "</div>"].join("")
     });
 
-    let audioElement = document.getElementById('audio-player');
-    if (!audioElement) {
-      return;
-    }
-    audioElement.addEventListener('ended', (e) => {
+    this.audioElement.addEventListener('ended', (e) => {
       this.props.playNext();
     });
-    audioElement.addEventListener('error', (e) => {
+    this.audioElement.addEventListener('error', (e) => {
       console.log('ERROR: Error while playing audio ', e);
       this.props.playNext();
     });
