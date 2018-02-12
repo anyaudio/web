@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { keys } from '../../constants'
 
-import Logo from '../header/static/img/any_audio_logo.png';
+import Logo from '../header/static/img/any_audio_logo.svg';
 import '../header/static/css/header.css';
 
 class Header extends React.Component {
@@ -34,7 +34,7 @@ class Header extends React.Component {
       <div>
         <header className="app-header">
           <div className="uk-container">
-            <nav className="uk-navbar uk-navbar-container uk-navbar-transparent">
+            <nav className="uk-navbar uk-navbar-container uk-navbar-transparent navbar-custom">
 
               <div className="uk-navbar-left">
                 <Link className="uk-navbar-item uk-logo uk-visible@s" to={'/'}><img src={Logo} alt="AnyAudio"/></Link>

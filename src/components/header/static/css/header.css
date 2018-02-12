@@ -57,3 +57,7 @@ Header.app-header {
   max-width: 100vw;
 
 }
+
+.navbar-custom .uk-navbar-item{
+    height: 72px;
+}
