@@ -1,6 +1,6 @@
 .player-wrapper {
   display: flex;
-  padding: 8px 40px;
+  padding: 12px 40px 9px;
 }
 
 .player-wrapper .player {
@@ -54,4 +54,51 @@
 .player .plyr__controls {
   padding: 0;
   border: 0;
+}
+
+.player .plyr {
+  position: static;
+}
+
+.plyr .plyr__progress {
+  width: 100vw;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+progress.plyr__progress--played[value]::-webkit-progress-value {
+  background-image: linear-gradient(-90deg, #F44336 0%, #FFA726 100%);
+
+}
+
+progress.plyr__volume--display[value]::-webkit-progress-value {
+  background-image: linear-gradient(-90deg, #F44336 0%, #FFA726 100%);
+
+}
+
+.plyr__progress--buffer, .plyr__progress--played, .plyr__volume--display {
+  height: 4px;
+}
+
+.plyr--audio .plyr__volume--display {
+  height: 2px;
+}
+
+.plyr__progress--buffer, .plyr__progress--played, .plyr__volume--display {
+  top: 58%;
+}
+
+.player .plyr input[type="range"]::-webkit-slider-thumb {
+  /*background:#FF6E2C;*/
+}
+.player .plyr input[type="range"]:active::-webkit-slider-thumb {
+  background:#FF6E2C;
+}
+
+.plyr .volume-wrapper {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
 }
