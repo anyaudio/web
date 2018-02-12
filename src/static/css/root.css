@@ -64,7 +64,7 @@ body {
 }
 
 .page .page-middle {
-  margin-top: 80px;
+  margin-top: 72px;
 }
 
 .uk-container.content-container {
@@ -75,7 +75,7 @@ body {
 
 .sidebar-container {
   padding-top: 40px;
-  top: 80px;
+  top: 72px;
   bottom: 0;
   position: fixed;
   overflow-y: scroll;

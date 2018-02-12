@@ -155,18 +155,21 @@ progress.plyr__volume--display[value]::-webkit-progress-value {
     width: 200px;
   }
 
-  .plyr .volume-wrapper {
+  .plyr .plyr__volume {
     display: none;
-  }
-
-  .player-queue{
-    margin-left: auto !important;
   }
 }
 
 @media only screen and (max-width: 450px) {
   .player-wrapper .player-meta {
     width: 140px;
+  }
+  .player-queue{
+    margin-left: auto !important;
+  }
+
+  .plyr .volume-wrapper{
+    display: none;
   }
 }
 
