@@ -12,6 +12,10 @@
   padding: 16px 32px;
 }
 
+.upnext-song-list-container .sidebar-item-container {
+  padding-bottom: 200px;
+}
+
 .sidebar .related-song-list-container .related-songs-list {
   max-height: 200px;
   overflow-y: auto;
