@@ -4,7 +4,7 @@
 }
 
 Header.app-header {
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.16), 0px 0px 0px 0 rgba(0, 0, 0, 0);
   background: #fff;
   position: fixed;
   width: 100vw;

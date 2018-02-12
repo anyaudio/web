@@ -64,7 +64,7 @@
   width: 100vw;
   position: absolute;
   top: -10px;
-  left: -10px;
+  left: 0;
 }
 
 progress.plyr__progress--played[value]::-webkit-progress-value {
