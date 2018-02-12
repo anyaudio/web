@@ -58,6 +58,7 @@
 
 .player .plyr {
   position: static;
+  min-width: auto;
 }
 
 .plyr .plyr__progress {
@@ -101,4 +102,20 @@ progress.plyr__volume--display[value]::-webkit-progress-value {
   justify-content: center;
   align-items: center;
   margin-left: auto;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .player-wrapper {
+    padding: 12px 28px 9px;
+
+  }
+
+  .player-wrapper .player-meta {
+    width: 200px;
+  }
+
+  .plyr .plyr__volume {
+    display: none;
+  }
 }
