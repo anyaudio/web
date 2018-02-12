@@ -3,6 +3,12 @@ import plyr from 'plyr';
 
 import 'plyr/dist/plyr.css';
 import './css/player.css'
+import nextIcon from './img/icon-next.svg'
+import pauseIcon from './img/pause-icon.svg'
+import queueIcon from './img/queue-icon.svg'
+import volumeIcon from './img/volume-icon.svg'
+import volumeOffIcon from './img/volume-off-icon.svg'
+import playIcon from './img/play-icon.svg'
 
 import api from '../../utils/api';
 import notify from '../../utils/notification';
@@ -33,21 +39,22 @@ export default class Player extends React.Component {
         "<span class='plyr__tooltip'>00:00</span>",
         "</span>",
         "<button type='button' data-plyr='play'>",
-        "<svg><use xlink:href='#plyr-play'></use></svg>",
+        `<img src=${playIcon} alt=/>`,
         "<span class='plyr__sr-only'>Play</span>",
         "</button>",
         "<button type='button' data-plyr='pause'>",
-        "<svg><use xlink:href='#plyr-pause'></use></svg>",
+        `<img src=${pauseIcon} alt=/>`,
         "<span class='plyr__sr-only'>Pause</span>",
         "</button>",
         "<button type='button' id='next-btn'>",
-        "<svg><use xlink:href='#plyr-fast-forward'></use></svg>",
+        `<img src=${nextIcon} alt=/>`,
         "<span class='plyr__sr-only'>Forward {seektime} secs</span>",
         "</button>",
         "<div class='volume-wrapper'>",
         "<button type='button' data-plyr='mute'>",
-        "<svg class='icon--muted'><use xlink:href='#plyr-muted'></use></svg>",
-        "<svg><use xlink:href='#plyr-volume'></use></svg>",
+        // "<svg class='icon--muted'><use xlink:href='#plyr-muted'></use></svg>",
+        `<img class='icon--muted' src=${volumeOffIcon} alt=/>`,
+        `<img src=${volumeIcon} alt=/>`,
         "<span class='plyr__sr-only'>Toggle Mute</span>",
         "</button>",
         "<span class='plyr__volume'>",
@@ -133,9 +140,7 @@ export default class Player extends React.Component {
           <div className="player-name-artist">
             <div className="player-name">{this.props.currentSong && this.props.currentSong.title}</div>
             <div className="player-artist">{this.props.currentSong && this.props.currentSong.uploader}</div>
-            {console.log(this.props.currentSong)}
           </div>
-          {/*{this.props.currentSong && this.props.currentSong.title}*/}
         </div>
 
         <div className="player">
