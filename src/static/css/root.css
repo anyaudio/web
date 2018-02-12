@@ -82,6 +82,7 @@ body {
   min-height: 100vh;
   right: 0;
   border-left: 1px solid #0000001f;
+  background-color: white;
 }
 
 @media (max-width: 960px) {

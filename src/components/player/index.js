@@ -6,13 +6,14 @@ import './css/player.css'
 import nextIcon from './img/icon-next.svg'
 import pauseIcon from './img/pause-icon.svg'
 import queueIcon from './img/queue-icon.svg'
+import queueActiveIcon from './img/queue-icon-active.svg'
 import volumeIcon from './img/volume-icon.svg'
 import volumeOffIcon from './img/volume-off-icon.svg'
 import playIcon from './img/play-icon.svg'
 
 import api from '../../utils/api';
 import notify from '../../utils/notification';
-import { keys } from '../../constants';
+import {keys} from '../../constants';
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -63,6 +64,11 @@ export default class Player extends React.Component {
         "<progress class='plyr__volume--display' max='10' value='0' role='presentation'></progress>",
         "</span>",
         "</div>",
+        "<button id='queue-toggle' class='player-queue' type='button' data-plyr='queue'>",
+        `<img class="queue-active" src=${queueActiveIcon} alt='queue icon'/>`,
+        `<img class="queue-default" src=${queueIcon} alt='queue icon'/>`,
+        "<span class='plyr__sr-only'>Queue</span>",
+        "</button>",
         "</div>"].join("")
     });
 
@@ -81,6 +87,18 @@ export default class Player extends React.Component {
         this.props.playNext();
       }
     }
+
+    let queueToogleElement = document.querySelector('#queue-toggle');
+
+    queueToogleElement.addEventListener('click', (evt) => {
+      if (this.props.playlistActive) {
+        queueToogleElement.classList.remove('active');
+        this.props.deactivatePlaylist();
+      } else {
+        queueToogleElement.classList.add('active');
+        this.props.activatePlaylist();
+      }
+    })
   }
 
   handleKeyboardEvents(e) {
@@ -109,16 +127,16 @@ export default class Player extends React.Component {
         this.props.playNext();
         break;
       case keys.F:
-          let searchElement = document.getElementById('search-input');
-          if (searchElement) {
-            searchElement.focus();
-          }
-          e.preventDefault();
-          break;
+        let searchElement = document.getElementById('search-input');
+        if (searchElement) {
+          searchElement.focus();
+        }
+        e.preventDefault();
+        break;
       default:
         return;
-      }
-    };
+    }
+  };
 
   componentWillReceiveProps(newProps) {
     api.fetchStreamURL(newProps.currentSong.stream_url)
@@ -144,7 +162,8 @@ export default class Player extends React.Component {
         </div>
 
         <div className="player">
-          <audio id='audio-player' ref={ref => this.audioElement = ref} src={this.state.streamURL} autoPlay={true} controls={true} preload='auto'>
+          <audio id='audio-player' ref={ref => this.audioElement = ref} src={this.state.streamURL} autoPlay={true}
+                 controls={true} preload='auto'>
             Audio not supported!!
           </audio>
         </div>

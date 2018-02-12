@@ -25,14 +25,15 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="sidebar uk-visible@m">
+      <div className="sidebar" style={{display:this.props.playlistActive?'block':'none'}}>
         <div>
           {/*Related Song*/}
           <div className="related-song-list-container">
 
             <div className="sidebar-title uk-text-uppercase font-size-14">Related Songs</div>
             <div className="sidebar-item-container related-songs-list uk-margin-small-top">
-              <MiniCardList name="related" songs={this.props.suggestedSongs} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
+              <MiniCardList name="related" songs={this.props.suggestedSongs} playSong={this.props.playSong}
+                            addToNowPlaying={this.props.addToNowPlaying}/>
             </div>
           </div>
 
@@ -40,11 +41,13 @@ export default class SideBar extends React.Component {
 
             <div className="sidebar-title uk-text-uppercase font-size-14">Coming Up Next</div>
             <div className="sidebar-item-container related-songs-list uk-margin-small-top">
-              <MiniCardList name="queue" songs={this.props.nextSongs} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}/>
+              <MiniCardList name="queue" songs={this.props.nextSongs} playSong={this.props.playSong}
+                            addToNowPlaying={this.props.addToNowPlaying}/>
             </div>
           </div>
         </div>
       </div>
     )
+    return <span />
   }
 }

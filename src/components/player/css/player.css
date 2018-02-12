@@ -130,6 +130,14 @@ progress.plyr__volume--display[value]::-webkit-progress-value {
   margin-left: 0;
 }
 
+.player-queue.active .queue-active, .player-queue .queue-default {
+  display: inline;
+}
+
+.player-queue.active .queue-default, .player-queue .queue-active {
+  display: none;
+}
+
 @media only screen and (max-width: 400px) {
   .plyr .volume-wrapper {
     display: none;
@@ -147,7 +155,23 @@ progress.plyr__volume--display[value]::-webkit-progress-value {
     width: 200px;
   }
 
-  .plyr .plyr__volume {
+  .plyr .volume-wrapper {
+    display: none;
+  }
+
+  .player-queue{
+    margin-left: auto !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .player-wrapper .player-meta {
+    width: 140px;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  .plyr__controls button.player-queue {
     display: none;
   }
 }
