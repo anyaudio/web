@@ -104,6 +104,12 @@ progress.plyr__volume--display[value]::-webkit-progress-value {
   margin-left: auto;
 }
 
+@media only screen and (max-width: 400px) {
+  .plyr .volume-wrapper {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 768px) {
 
   .player-wrapper {
