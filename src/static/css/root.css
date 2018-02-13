@@ -109,4 +109,8 @@ body {
   .playlist-complete .uk-grid>* {
     padding-left: 15px;
   }
+
+  .uk-container.content-container, .sidebar-container {
+    padding-top: 30px;
+  }
 }
