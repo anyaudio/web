@@ -10,8 +10,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-top: 1.2em solid #fff;
-  border-bottom: 1.2em solid #fff;
+  border-top: 1.3em solid #fff;
+  border-bottom: 1.3em solid #fff;
   outline-offset: -1px;
   outline: 2px solid #fff;
 }
@@ -38,4 +38,20 @@
 
 .video-card-grid .video-meta .video-channel, .video-card-grid .video-meta .video-views {
   font-size: 11px;
+}
+
+@media (min-width:750px) and (max-width: 959px) {
+
+  .video-card-grid .video-thumb .thumb-overlay {
+    border-top: 1.61em solid #fff;
+    border-bottom: 1.61em solid #fff;
+  }
+}
+
+@media (min-width:530px) and (max-width: 639px) {
+
+  .video-card-grid .video-thumb .thumb-overlay {
+    border-top: 1.61em solid #fff;
+    border-bottom: 1.61em solid #fff;
+  }
 }
