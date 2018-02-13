@@ -21,13 +21,22 @@ export default class VideoCardList extends React.Component {
     return (
       <div className='video-card-list row'>
         <div className={'video-card-list-data'}>
-          <img src={this.props.video.thumb} className='img-responsive img-circle video-card-list-thumb'
-               alt='IMG' onClick={this.playSong.bind(this)}/>
+          <div className="video-thumb video-card-list-thumb">
+            <div className="play-btn">
+              <svg width="23" height="34" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.7 33.574c-.88.66-1.594.297-1.594-.806V1.225C.106.12.816-.243 1.7.418l20.545 15.385c.88.659.883 1.725 0 2.387L1.7 33.574z" fill="#FFF" fillRule="evenodd" fillOpacity=".85" opacity=".951"/>
+              </svg>
+            </div>
+
+            <img src={this.props.video.thumb} className='uk-border-circle video-card-list-thumb'
+                 alt='IMG' onClick={this.playSong.bind(this)}/>
+
+          </div>
           <div className='video-card-list-details col-xs-11 col-sm-11 col-md-10 col-lg-8'>
             <div className='video-card-list-time'>
               {this.props.video.length}
             </div>
-            <div className='video-card-list-title'>
+            <div className='video-card-list-title max-line-2'>
               {this.props.video.title}
             </div>
             <div className='video-card-list-uploader'>

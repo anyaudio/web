@@ -39,14 +39,14 @@ export default class NavigationSearch extends React.Component {
     if (this.props.searchStatus === searchStatus.searching) {
       return <span>Loading...</span>
     } else if (this.props.searchStatus === searchStatus.searched) {
-      return <span>Found {this.props.numberResults} videos.</span>
+      return;
     }
   }
 
   render() {
     return (
-      <div className='container'>
-        <h2>Search results for {this.query}</h2>
+      <div className='search-container'>
+        <h4 className="search-heading">Top Results for <span className="text-color-primary">"{this.query}"</span></h4>
         <div className='text-center'>
           {this.getHeadline()}
         </div>

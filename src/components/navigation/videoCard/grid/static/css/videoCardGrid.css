@@ -16,11 +16,12 @@
   outline: 2px solid #fff;
 }
 
-.video-card-grid .video-thumb .play-btn {
+.video-card-grid .video-thumb .play-btn, .video-card-list .video-thumb .play-btn {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+  z-index: 1;
 }
 
 .video-card-grid .video-meta {

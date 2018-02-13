@@ -1,3 +1,7 @@
+.search-heading {
+ margin-bottom: 30px;
+}
+
 .video-card-list-list {
   margin: 0 0 60px 0;
 }
@@ -7,8 +11,8 @@
   display: flex;
   justify-content: space-between;
   flex-flow: row;
-  height: 80px;
-  margin: 8px 0;
+  max-width: 687px;
+  margin-bottom: 20px;
 }
 
 .video-card-list-data {
@@ -16,10 +20,19 @@
 }
 
 .video-card-list-thumb {
+  min-width: 80px;
+  min-height: 80px;
   width: 80px;
   height: 80px;
   cursor: pointer;
+  background-size: cover;
+  position: relative;
 }
+
+.video-card-list .video-thumb .play-btn {
+
+}
+
 
 .video-card-list-details {
   display: flex;
@@ -30,19 +43,15 @@
 .video-card-list-time {
   color: #f00;
   font-size: 10px;
-  font-weight: 800;
 }
 
 .video-card-list-title {
-  font-weight: 800;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000de;
 }
 
-.video-card-list-uploader {
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-.video-card-list-views {
+.video-card-list-uploader, .video-card-list-views {
   font-size: 12px;
-  opacity: 0.8;
+  color: rgba(0, 0, 0, 0.55);
 }
