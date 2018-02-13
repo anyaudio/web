@@ -24,7 +24,7 @@
   overflow: hidden;
 }
 
-.player-wrapper .player-name {
+.player-wrapper .player-name, .player-wrapper .player-artist {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

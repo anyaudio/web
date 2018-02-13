@@ -31,6 +31,7 @@ Header.app-header {
 
 .anyaudio-search-container {
   flex-grow: 1;
+  padding-left: 20px;
 }
 
 .uk-search.anyaudio-search .uk-search-icon {
@@ -60,4 +61,17 @@ Header.app-header {
 
 .navbar-custom .uk-navbar-item{
     height: 72px;
+}
+
+@media (max-width: 639px) {
+  .app-header >.uk-container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  .anyaudio-search-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }

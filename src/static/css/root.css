@@ -90,3 +90,23 @@ body {
     margin-right: auto;
   }
 }
+
+
+@media (max-width: 639px) {
+  .anyaudio-search-container {
+    min-height: 72px;
+  }
+
+  .uk-container.content-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .playlist-complete .uk-grid {
+    margin-left: -15px;
+  }
+
+  .playlist-complete .uk-grid>* {
+    padding-left: 15px;
+  }
+}
