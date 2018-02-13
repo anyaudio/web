@@ -139,13 +139,16 @@ export default class Player extends React.Component {
   };
 
   componentWillReceiveProps(newProps) {
-    api.fetchStreamURL(newProps.currentSong.stream_url)
-      .then(url => {
-        this.setState({...this.state, streamURL: url});
-        notify('Playing now...', newProps.currentSong.title);
-      });
-    this.props.getSuggestions(newProps.currentSong.suggest_url);
-    this.props.playedNext(newProps.currentSong)
+    if (!this.props.currentSong || this.props.currentSong.id !== newProps.currentSong.id) {
+      // A new song is loaded
+      api.fetchStreamURL(newProps.currentSong.stream_url)
+        .then(url => {
+          this.setState({...this.state, streamURL: url});
+          notify('Playing now...', newProps.currentSong.title);
+        });
+      this.props.getSuggestions(newProps.currentSong.suggest_url);
+      this.props.playedNext(newProps.currentSong)
+    }
   }
 
   render() {
