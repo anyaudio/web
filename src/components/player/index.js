@@ -102,7 +102,7 @@ export default class Player extends React.Component {
   }
 
   handleKeyboardEvents(e) {
-    if(e.target === document.body) {
+    if (e.target === document.body) {
       switch (e.keyCode) {
         case keys.SPACE:
           this.audioElement.paused === false ? this.audioElement.pause() : this.audioElement.play();
