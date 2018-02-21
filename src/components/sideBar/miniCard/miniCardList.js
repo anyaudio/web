@@ -7,10 +7,14 @@ export default class MiniCardList extends React.Component {
     return this.props.songs.map(song => {
       if (this.props.currentSong && song.id === this.props.currentSong.id) {
         return <MiniCard song={song} active={true} playSong={this.props.playSong}
-                         addToNowPlaying={this.props.addToNowPlaying} key={song.id}/>
+                         addToNowPlaying={this.props.addToNowPlaying} key={song.id}
+                         removeSong = {this.props.removeSong}
+        />
       }
       return <MiniCard name={this.props.name} song={song} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}
-                       key={song.id}/>
+                       key={song.id}
+                       removeSong = {this.props.removeSong}
+      />
     });
   }
 }
