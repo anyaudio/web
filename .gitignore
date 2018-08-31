@@ -25,3 +25,5 @@ yarn-error.log*
 
 webpack-stats.json
 dist
+
+.firebase/
