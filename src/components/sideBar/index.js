@@ -50,6 +50,5 @@ export default class SideBar extends React.Component {
         </div>
       </div>
     )
-    return <span />
   }
 }

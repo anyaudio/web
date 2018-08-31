@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { keys } from '../../constants'
 
@@ -7,6 +7,12 @@ import Logo from '../header/static/img/any_audio_logo.svg';
 import '../header/static/css/header.css';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.search = this.search.bind(this);
+  }
+
   componentDidMount() {
     let searchElement = document.getElementById('search-input');
     if (searchElement) {
@@ -37,16 +43,23 @@ class Header extends React.Component {
             <nav className="uk-navbar uk-navbar-container uk-navbar-transparent navbar-custom">
 
               <div className="uk-navbar-left">
-                <Link className="uk-navbar-item uk-logo uk-visible@s" to={'/'}><img src={Logo} alt="AnyAudio"/></Link>
+                <Link className="uk-navbar-item uk-logo uk-visible@s" to={'/'}>
+                  <img src={Logo} alt="AnyAudio" />
+                </Link>
               </div>
 
               <div className="anyaudio-search-container uk-navbar-left uk-nav-center-sm">
-                <form className="uk-search uk-search-default anyaudio-search" action="javascript:void(0)"
-                      onSubmit={this.search.bind(this)} autoComplete={'off'}>
+                <div className="uk-search uk-search-default anyaudio-search">
                   <span className="uk-search-icon" uk-icon="icon: search" />
-                  <input className="uk-search-input border-radius40" id='search-input' type="text" placeholder="Search" />
-                </form>
+                  <input
+                    className="uk-search-input border-radius40"
+                    id='search-input'
+                    type="text"
+                    placeholder="Search"
+                  />
+                </div>
               </div>
+
             </nav>
           </div>
         </header>
