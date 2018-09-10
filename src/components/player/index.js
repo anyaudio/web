@@ -127,6 +127,15 @@ export default class Player extends React.Component {
         case keys.N:
           this.props.playNext();
           break;
+        case keys.R:
+          let existPrevious = this.props.prevSongs.length >= 2;
+          if(this.audioElement.currentTime <= 5 && existPrevious) {
+              this.props.playPrev();
+              this.props.playNext();
+          } else {
+            this.audioElement.currentTime = 0;
+          }
+          break;
         case keys.F:
           let searchElement = document.getElementById('search-input');
           if (searchElement) {

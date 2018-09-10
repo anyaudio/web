@@ -4,6 +4,7 @@ export const actionType = {
   songAdd: 'SONG_ADD',
   songRemove: 'SONG_REMOVE',
   playNext: 'PLAY_NEXT',
+  playPrev: 'PLAY_PREV',
   playedNext: 'PLAYED_NEXT',
   getSuggestions: 'GET_SUGGESTIONS'
 };
@@ -18,6 +19,10 @@ export function removeSong(song) {
 
 export function playNext() {
   return dispatch => dispatch({type: actionType.playNext});
+}
+
+export function playPrev() {
+  return dispatch => dispatch({ type: actionType.playPrev })
 }
 
 export function playedNext(song) {
