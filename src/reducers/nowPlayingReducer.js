@@ -37,6 +37,7 @@ export function nowPlaying(state = initialState, action) {
         let prev = state.previousSongs.slice(0, state.previousSongs.length - 2)
         let songsToPlay = state.previousSongs.slice(state.previousSongs.length - 2)
         let next = state.nextSongs.slice(0)
+        next = next.filter(item => !songInArray(item, songsToPlay));
         next.unshift(...songsToPlay)
         return {
           ...state,
