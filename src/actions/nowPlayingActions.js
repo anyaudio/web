@@ -3,6 +3,7 @@ import api from '../utils/api';
 export const actionType = {
   songAdd: 'SONG_ADD',
   songRemove: 'SONG_REMOVE',
+  songSwap: 'SONG_SWAP',
   playNext: 'PLAY_NEXT',
   playedNext: 'PLAYED_NEXT',
   getSuggestions: 'GET_SUGGESTIONS'
@@ -10,6 +11,10 @@ export const actionType = {
 
 export function addSong(song) {
   return dispatch => dispatch({type: actionType.songAdd, song});
+}
+
+export function swapSong(dragIndex, hoverIndex) {
+  return dispatch => dispatch({type: actionType.songSwap, dragIndex: dragIndex, hoverIndex: hoverIndex});
 }
 
 export function removeSong(song) {

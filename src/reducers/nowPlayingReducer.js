@@ -1,7 +1,6 @@
 import {actionType} from "../actions/nowPlayingActions";
 import {removeDuplicateSongs} from "../utils/removeDuplicates";
 import {anyCommonSong, removeDuplicateIn, songInArray} from '../utils/songSearchUtils';
-
 const initialState = {nextSongs: [], suggestedSongs: [], dispatchNext: false, previousSongs: []};
 
 export function nowPlaying(state = initialState, action) {
@@ -22,6 +21,17 @@ export function nowPlaying(state = initialState, action) {
 
     case actionType.playNext:
       return {...state, dispatchNext: true};
+
+    case actionType.songSwap:
+      const dragCard = state.nextSongs[action.dragIndex];
+      const hoverCard = state.nextSongs[action.hoverIndex];
+      let tmp = state.nextSongs;
+      tmp.splice(action.dragIndex,1,hoverCard);
+      console.log(tmp);
+      let anothertmp = tmp;
+      anothertmp.splice(action.hoverIndex,1,dragCard);
+      console.log(anothertmp);
+      return {...state, nextSongs: anothertmp};
 
     case actionType.playedNext:
       prev = state.previousSongs.slice(0);

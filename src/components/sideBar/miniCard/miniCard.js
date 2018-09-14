@@ -2,7 +2,65 @@ import React from 'react';
 
 import './static/css/minicard.css';
 
-export default class MiniCard extends React.Component {
+import { DragSource, DropTarget } from 'react-dnd';
+import { findDOMNode } from 'react-dom';
+import flow from 'lodash/flow'
+
+const cardSource = {
+  beginDrag(props) {
+    console.log(props.song);
+    console.log(props.song.id + " "+props.index);
+    if(props.name === 'queue')
+    {
+      return {
+      id: props.song.id,
+      index: props.index,
+      }
+    }
+
+    return ;
+  }
+}
+
+const cardTarget = {
+  hover(props, monitor, component) {
+    if (!component) {
+      return null
+    }
+    const dragIndex = monitor.getItem().index
+    const hoverIndex = props.index
+
+    // Don't replace items with themselves
+    if (dragIndex === hoverIndex) {
+      return
+    }
+
+    const hoverBoundingRect = (findDOMNode(
+      component,
+    )).getBoundingClientRect()
+
+    const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+
+    const clientOffset = monitor.getClientOffset()
+
+    const hoverClientY = (clientOffset).y - hoverBoundingRect.top
+
+    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+      return
+    }
+
+    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+      return
+    }
+
+    props.moveCard(dragIndex, hoverIndex)
+
+    monitor.getItem().index = hoverIndex
+  },
+}
+
+
+class MiniCard extends React.Component {
   play() {
     this.props.playSong(this.props.song);
   }
@@ -16,6 +74,9 @@ export default class MiniCard extends React.Component {
   }
 
   render() {
+    const {isDragging, connectDragSource,connectDropTarget,} = this.props;
+
+    const opacity  = isDragging ? 0.5 : 1;
 
     const MAX_TITLE_LENGTH = 24;
 
@@ -28,7 +89,11 @@ export default class MiniCard extends React.Component {
     console.log(this.props.name);
 
     return (
-      <div className='song-card-list uk-margin-small-bottom uk-flex'>
+      connectDragSource &&
+      connectDropTarget &&
+      connectDragSource(
+        connectDropTarget(
+              <div className='song-card-list uk-margin-small-bottom uk-flex' style={{opacity}}>
         <div className="uk-flex"  onClick={this.play.bind(this)}>
           <img src={this.props.song.thumb} className='uk-border-circle song-card-list-thumb'
                alt='IMG'/>
@@ -46,6 +111,18 @@ export default class MiniCard extends React.Component {
             <button name='plus' className="uk-icon-link uk-icon" uk-icon="icon:close;" onClick={this.removeSong.bind(this)} />}
         </div>
       </div>
+          ),
+      )
     )
   }
 }
+
+export default flow(DragSource('card',
+  cardSource,
+  (connect, monitor) => ({
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  }),),DropTarget('card', cardTarget, (connect) => ({
+  connectDropTarget: connect.dropTarget(),
+})
+  ))(MiniCard);

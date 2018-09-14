@@ -2,9 +2,21 @@ import React from 'react';
 
 import MiniCard from "./miniCard";
 
-export default class MiniCardList extends React.Component {
+
+class MiniCardList extends React.Component {
+
+  state = {
+    updatedSongList : false,
+  }
+
+  swapCard = (dragIndex, hoverIndex)  => {
+    this.props.moveCard(dragIndex, hoverIndex);
+    this.setState({updatedSongList : !this.state.updatedSongList});
+  }
+
   render() {
-    return this.props.songs.map(song => {
+    console.log(this.props.songs);
+    return this.props.songs.map( (song, i) => {
       if (this.props.currentSong && song.id === this.props.currentSong.id) {
         return <MiniCard song={song} active={true} playSong={this.props.playSong}
                          addToNowPlaying={this.props.addToNowPlaying} key={song.id}
@@ -13,8 +25,12 @@ export default class MiniCardList extends React.Component {
       }
       return <MiniCard name={this.props.name} song={song} playSong={this.props.playSong} addToNowPlaying={this.props.addToNowPlaying}
                        key={song.id}
+                       index={i}
                        removeSong = {this.props.removeSong}
+                       moveCard = {this.swapCard}                       
       />
     });
   }
 }
+
+export default MiniCardList;
