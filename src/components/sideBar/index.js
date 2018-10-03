@@ -1,9 +1,11 @@
 import React from 'react';
-
 import MiniCardList from "./miniCard/miniCardList";
-import './static/css/index.css'
+import './static/css/index.css';
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
-export default class SideBar extends React.Component {
+
+class SideBar extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.dispatchNext) {
@@ -17,6 +19,11 @@ export default class SideBar extends React.Component {
       }
     }
   }
+
+  moveCard = (dragIndex, hoverIndex) => {
+    console.log(dragIndex + " "+ hoverIndex);
+    this.props.swapSong(dragIndex, hoverIndex);
+  } 
 
   playSong(video) {
     this.props.playSong(video);
@@ -44,7 +51,8 @@ export default class SideBar extends React.Component {
             <div className="sidebar-item-container related-songs-list uk-margin-small-top">
               <MiniCardList name="queue" songs={this.props.nextSongs} playSong={this.props.playSong}
                             addToNowPlaying={this.props.addToNowPlaying}
-                            removeSong = {this.props.removeSong}/>
+                            removeSong = {this.props.removeSong}
+                            moveCard = {this.moveCard}/>
             </div>
           </div>
         </div>
@@ -52,3 +60,5 @@ export default class SideBar extends React.Component {
     )
   }
 }
+
+export default DragDropContext(HTML5Backend)(SideBar) ;
