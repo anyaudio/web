@@ -32,6 +32,21 @@ export function nowPlaying(state = initialState, action) {
       }
       return {...state, dispatchNext: false, previousSongs: prev};
 
+    case actionType.playPrev:
+      if(state.previousSongs.length >= 2) {
+        let prev = state.previousSongs.slice(0, state.previousSongs.length - 2)
+        let songsToPlay = state.previousSongs.slice(state.previousSongs.length - 2)
+        let next = state.nextSongs.slice(0)
+        next = next.filter(item => !songInArray(item, songsToPlay));
+        next.unshift(...songsToPlay)
+        return {
+          ...state,
+          previousSongs: prev,
+          nextSongs: next
+        }
+      }
+      return state;
+
     case actionType.getSuggestions:
       if (action.suggestedSongs) {
         suggestions = removeDuplicateIn(removeDuplicateIn(action.suggestedSongs, state.previousSongs), state.nextSongs);

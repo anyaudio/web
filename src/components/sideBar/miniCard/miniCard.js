@@ -25,8 +25,6 @@ export default class MiniCard extends React.Component {
       videoTitle =  videoTitle.substring(0, MAX_TITLE_LENGTH)+'... ';
     }
 
-    console.log(this.props.name);
-
     return (
       <div className='song-card-list uk-margin-small-bottom uk-flex'>
         <div className="uk-flex"  onClick={this.play.bind(this)}>
