@@ -4,3 +4,4 @@
   ],
   "plugins": ["transform-class-properties"]
 }
+cout<< " hello world " ;
